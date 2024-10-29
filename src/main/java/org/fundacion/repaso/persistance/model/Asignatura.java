@@ -1,6 +1,7 @@
 package org.fundacion.repaso.persistance.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +31,10 @@ public class Asignatura implements Serializable {
 
     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy="asignaturasMatriculadas")
     private List<Alumno> alumnosMatriculados;
+    
+    
+    // Relacion uno a muchos con la entidad Nota, mapeado con asignatura
+    @OneToMany(mappedBy = "asignatura")
+    private List<Nota> notas = new ArrayList<>();
+    
 }
