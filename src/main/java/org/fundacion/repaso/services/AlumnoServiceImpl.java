@@ -47,5 +47,18 @@ public class AlumnoServiceImpl implements AlumnoServiceI {
         //Guardar alumno
         alumnoRepo.save(newAlumno);
     }
+
+    //Obtiene todos los alumnos de la bbdd y los convierte en Alummo DTO
+	@Override
+	public List<AlumnoDTO> getAlumnos() {
+		List<Alumno> alumnos = alumnoRepo.findAll();
+		List<AlumnoDTO> alumnosDTO = new ArrayList<>();
+		
+		for(Alumno newAlumno : alumnos) {
+			alumnosDTO.add(new AlumnoDTO(newAlumno));
+		}
+		
+		return alumnosDTO;
+	}
     
 }

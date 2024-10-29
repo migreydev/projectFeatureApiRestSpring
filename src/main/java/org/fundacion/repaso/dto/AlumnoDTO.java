@@ -19,7 +19,6 @@ public class AlumnoDTO {
     private String alumnoSurname;
     private String alumnoEmail;
     private Date birthDate;
-    private String dni;
     private List<NotaDTO> notas;
 
     public AlumnoDTO(Alumno al) {
@@ -28,7 +27,6 @@ public class AlumnoDTO {
         this.alumnoSurname = al.getAlumnoSurname();
         this.alumnoEmail = al.getAlumnoEmail();
         this.birthDate = al.getBirthDate();
-        this.dni = al.getDni().getDocumentNumber() + al.getDni().getDocumentLetter();
         this.notas = toNotasDTO(al.getNotas());
     }
 
