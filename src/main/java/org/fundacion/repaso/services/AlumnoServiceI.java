@@ -10,4 +10,5 @@ public interface AlumnoServiceI {
     AlumnoDTO getAlumnoByEmail(String email);
     List<AlumnoDTO> getAlumnosBetweenBirthdates(Date from_date, Date to_date);
     void insertAlumno(CrearAlumnoDTO alumno);
+    List<AlumnoDTO> getAlumnos();
 }

@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,4 +34,11 @@ public class Nota implements Serializable{
     @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name="alumno_alumno_id", referencedColumnName = "alumno_id")
     private Alumno alumnoCalificado;
+    
+    // Relacion muchos a uno con la entidad Asignatura
+    @ManyToOne
+    @JoinColumn(name="asignatura_id")// Especifica la columna en la tabla Nota
+    private Asignatura asignatura;
 }
+
+
